@@ -4,6 +4,8 @@
 
 手势识别通过卷积神经网络实现，这里使用了ResNet50的结构，为了适应项目进行了些微修改。用到了自己构建的数据集，0-9十个类别，共5000张左右650×650的图像。
 
+<img src="resources/imgs/mainwindow.png" title="" alt="" data-align="center">
+
 ### Installation
 
 ```bash
