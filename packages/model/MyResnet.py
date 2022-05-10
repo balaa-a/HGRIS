@@ -8,13 +8,16 @@ class Bottleneck(nn.Module):
         super(Bottleneck,self).__init__()
         # bollteneck层的卷积操作，conv2、conv3不会改变图像的尺寸但会改变通道数，conv1可以改变尺寸和通道数。
         self.conv1=nn.Conv2d(inchannel,midchannel,kernel_size=1,stride=stride,bias=False)
-        self.bn1=nn.BatchNorm2d(midchannel)
+        # self.bn1=nn.BatchNorm2d(midchannel)
+        self.bn1=nn.InstanceNorm2d(midchannel)
         
         self.conv2=nn.Conv2d(midchannel,midchannel,kernel_size=3,stride=1,padding=1,bias=False)
-        self.bn2=nn.BatchNorm2d(midchannel)
+        # self.bn2=nn.BatchNorm2d(midchannel)
+        self.bn2=nn.InstanceNorm2d(midchannel)
         
         self.conv3=nn.Conv2d(midchannel,midchannel*self.extention,kernel_size=1,stride=1,bias=False)
-        self.bn3=nn.BatchNorm2d(midchannel*self.extention)
+        # self.bn3=nn.BatchNorm2d(midchannel*self.extention)
+        self.bn3=nn.InstanceNorm2d(midchannel*self.extention)
         
         self.downsample=downsample
         self.relu=nn.ReLU(inplace=True)
@@ -42,7 +45,8 @@ class MyResnet(nn.Module):
         
         # stem
         self.conv1=nn.Conv2d(in_channels=3,out_channels=self.inchannel,kernel_size=7,stride=2,padding=3,bias=False)
-        self.bn1=nn.BatchNorm2d(self.inchannel)
+        # self.bn1=nn.BatchNorm2d(self.inchannel)
+        self.bn1=nn.InstanceNorm2d(self.inchannel)
         self.relu=nn.ReLU()
         self.maxpool=nn.MaxPool2d(kernel_size=3,stride=2,padding=1)
         
@@ -71,7 +75,8 @@ class MyResnet(nn.Module):
         if (stride!=1)|(midchannel*Block.extention!=self.inchannel):
             downsample=nn.Sequential(
                 nn.Conv2d(self.inchannel,midchannel*Block.extention,stride=stride,kernel_size=1,bias=False),
-                nn.BatchNorm2d(midchannel*Block.extention)
+                # nn.BatchNorm2d(midchannel*Block.extention)
+                nn.InstanceNorm2d(midchannel*Block.extention)
             )
         
         # Conv Block输入和输出的维度（通道数和size）是不一样的，所以不能连续串联，他的作用是改变网络的维度
@@ -97,4 +102,3 @@ class MyResnet(nn.Module):
         out=torch.flatten(out,1)
         out=self.fc(out)
         return out
-

@@ -36,7 +36,7 @@ class HandExtract:
         # 后处理，恢复原图像大小
         skin=cv2.resize(skin,(w,h))
         # skin=cv2.dilate(skin,(5,5))
-        skin = cv2.erode(skin,(13,13),iterations = 1)
+        # skin = cv2.erode(skin,(13,13),iterations = 1)
 
         return skin
 

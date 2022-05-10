@@ -54,6 +54,7 @@ class Control():
 
     def control(self,figure_digital,hand_split_mask):
         if figure_digital==1:
+            self.pre_figure_digital=1
             # 计算指尖坐标
             finger_point=HANDEXTRACT.getFingerPointFor1(hand_split_mask)
             # 映射法移动光标
@@ -62,26 +63,35 @@ class Control():
             screen_point=self.calScreenLocByStimul(finger_point)
             # 移动鼠标
             MOUSE.moveTo(screen_point[0],screen_point[1])
-            
+        
+        elif figure_digital==0 and self.pre_figure_digital!=0:
+            self.pre_figure_digital=0
+            MOUSE.down()
 
         elif figure_digital==2:
+            self.pre_figure_digital=2
             self.mode=0
-        # elif figure_digital==10 and self.pre_figure_digital!=10:
-        #     MOUSE.rightClick()
-        # elif figure_digital==3 and self.pre_figure_digital!=3:
-        #     MOUSE.leftClick()
-        # elif figure_digital==4 and self.pre_figure_digital!=4:
-        #     MOUSE.rightDoubleClick()
-        # elif figure_digital==5 and self.pre_figure_digital!=5:
-        #     MOUSE.leftDoubleClick()
-        # elif figure_digital==6 and self.pre_figure_digital!=6:
-        #     MOUSE.scroll()
-        # elif figure_digital==7 and self.pre_figure_digital!=7:
-        #     MOUSE.down()
-        # elif figure_digital==8 and self.pre_figure_digital!=8:
-        #     pass
-        # elif figure_digital==9 and self.pre_figure_digital!=9:
-        #     MOUSE.up()
+            MOUSE.up()
+        elif figure_digital==3 and self.pre_figure_digital!=3:
+            self.pre_figure_digital=3
+            MOUSE.rightClick()
+        elif figure_digital==4 and self.pre_figure_digital!=4:
+            self.pre_figure_digital=4
+            MOUSE.leftClick()
+        elif figure_digital==5 and self.pre_figure_digital!=5:
+            self.pre_figure_digital=5
+            MOUSE.leftDoubleClick()
+        elif figure_digital==6 and self.pre_figure_digital!=6:
+            self.pre_figure_digital=6
+            # MOUSE.scrool()
+        elif figure_digital==7 and self.pre_figure_digital!=7:
+            self.pre_figure_digital=7
+        elif figure_digital==8 and self.pre_figure_digital!=8:
+            self.pre_figure_digital=8
+        elif figure_digital==9 and self.pre_figure_digital!=9:
+            self.pre_figure_digital=9
+            MOUSE.up()
+        
         
         
         

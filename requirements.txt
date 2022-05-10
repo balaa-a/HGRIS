@@ -1,0 +1,8 @@
+opencv-python
+loguru
+pyautogui
+torch
+torchvision
+pillow
+PyQt5
+

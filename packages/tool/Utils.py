@@ -16,7 +16,12 @@ class Log():
         aline=time.ctime()+"  "+os.path.relpath(__file__)+"  "+log_str+"\n"
         self.log_lst=self.log_lst+aline
         
-
+class Preference:
+    def __init__(self) -> None:
+        self.video_path = "/home/balaa/Videos"
+        self.font=QFont("Roman times", 10)
+        self.video_name_type="playback-"
+        self.number=0
 
 class ImageTool:
     def __init__(self) -> None:
@@ -214,3 +219,4 @@ IMAGETOOL=ImageTool()
 SMOOTH=Smooth()
 TRANS=Trans()
 LOG=Log()
+MY = Preference()

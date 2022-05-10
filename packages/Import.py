@@ -23,3 +23,16 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QImage, QPixmap
 import threading
+import sys
+from PyQt5.QtGui import QIcon,QCursor
+from time import sleep
+import webbrowser
+from PyQt5.QtWidgets import *
+import os
+import threading
+import cv2
+from PyQt5.QtGui import QImage, QPixmap,QFont
+from PyQt5.QtCore import *
+from PyQt5 import QtGui
+import time
+from PyQt5.QtPrintSupport import QPageSetupDialog,QPrintDialog, QPrinter
