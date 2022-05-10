@@ -1,5 +1,3 @@
-Hand Guesture Recognition System:
-
 ### Introduction
 
 本系统主要功能是通过识别手势与系统进行交互，还有一些额外的功能如录像回放、日志打印等，目的是帮助用户回溯历史操作。
@@ -8,7 +6,12 @@ Hand Guesture Recognition System:
 
 ### Installation
 
-
+```bash
+git clone https://gitee.com/balaa/hgrs.git
+cd HGRS
+pip install -r requirements.txt
+# 下载weightfile文件，放置在resources/checkpoints下
+```
 
 ### Pre-trained
 
