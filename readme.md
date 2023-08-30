@@ -1,32 +1,27 @@
 ### Introduction
 
-本系统主要功能是通过识别手势与系统进行交互，还有一些额外的功能如录像回放、日志打印等，目的是帮助用户回溯历史操作。
-
-手势识别通过卷积神经网络实现，这里使用了ResNet50的结构，为了适应项目进行了些微修改。用到了自己构建的数据集，0-9十个类别，共5000张左右650×650的图像。
+The main function of this system is to interact with the system through gesture recognition. There are also additional features such as video playback, log printing, etc., with the aim of assisting users in retracing historical actions. Gesture recognition is achieved through a convolutional neural network, utilizing the structure of ResNet50. Slight modifications were made to adapt to the project's needs. A custom-built dataset was used, consisting of ten categories (0-9), totaling around 5000 images of dimensions approximately 650x650.
 
 <img src="resources/imgs/mainwindow.png" title="" alt="" data-align="center">
 
 ### Installation
 
 ```bash
-git clone https://gitee.com/balaa/hgrs.git
-cd HGRS
+git https://github.com/whao22/Gesture-Interaction.git
+cd Gesture-Interaction
 pip install -r requirements.txt
-# 下载weightfile文件，放置在resources/checkpoints下
+# Download the weightfile and place it in the "resources/checkpoints" directory.
+
+bash AppSystem.sh
 ```
 
 ### Pre-trained
 
-请下载[weightfile](https://drive.google.com/drive/folders/1hxzhYrLdi3kir7EUl7uBpMaTfOKcI9RT?usp=sharing)，并best-10.pt文件放置在“resources/checkpoints/”目录下。
+Please download the [weightfile](https://drive.google.com/drive/folders/1hxzhYrLdi3kir7EUl7uBpMaTfOKcI9RT?usp=sharing), and place the file named "best-10.pt" in the "resources/checkpoints/" directory.
 
 ### Train
 
-请下载数据[data](https://drive.google.com/drive/folders/1bwPzxeHKcwcehEmTaXwqDyRfiZ417pvr?usp=sharing)用于训练。训练脚本在packages/model目录下。
+Please download the data from [this link](https://drive.google.com/drive/folders/1bwPzxeHKcwcehEmTaXwqDyRfiZ417pvr?usp=sharing) for training purposes. The training script can be found in the "packages/model" directory.
 
-### Startup
-
-```bash
-bash AppSystem.sh
-```
 
 
